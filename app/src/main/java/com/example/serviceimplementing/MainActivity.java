@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent serviceIntent = new Intent(MainActivity.this, MusicService.class);
                 ContextCompat.startForegroundService(MainActivity.this, serviceIntent);
-
-//                startService(new Intent(MainActivity.this, MusicService.class));
+                startServiceBtn.setEnabled(false);
+                stopServiceBtn.setEnabled(true);
             }
         });
 
@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 stopService(new Intent(MainActivity.this, MusicService.class));
+                startServiceBtn.setEnabled(true);
+                stopServiceBtn.setEnabled(false);
             }
         });
 
